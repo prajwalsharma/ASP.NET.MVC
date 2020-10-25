@@ -138,3 +138,42 @@ c. It provide all the tools required to create an MVC web application.
 2. View is a .cshtml file (c# in html)
 3. View supports pure HTML.
 4. Views are returned either as **ActionResult**, **IActionResult** or **ViewResult**
+
+
+
+# 8. Model
+
+1. A Model is a C# class
+2. Model is responsible to hold data (variables & properties)
+3. Data coming from DB is stored in Models (in memory) then this data is sent to View.
+
+
+
+# 9. ViewBag
+
+1. It is used to send data from Controller to View
+
+2. It is a ***dynamic*** property.
+
+   ```c#
+   // In Controller
+   ViewBag.MyProperty = "Hello World";
+   
+   // In View
+   @ViewBag.MyProperty
+   ```
+
+
+
+# 10. ViewData
+
+1. It is also used to pass data from Controller to View only
+
+2. It is of ***Dictionary*** type
+
+   ```c#
+   //In Controller
+   ViewData["MyProperty"] = "Hello World";
+   ```
+
+   

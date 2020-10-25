@@ -1,0 +1,37 @@
+﻿
+@model ViewBagDemo.Models.Employee
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ViewBag Demo</h2>
+<hr />
+
+<h1>String from ViewBag</h1>
+<h4>@ViewBag.SimpleString</h4>
+<hr />
+
+<h1>List from ViewBag</h1>
+@foreach(var item in ViewBag.SimpleList)
+{
+    <h4>@item</h4>
+}
+<hr />
+
+<h1>Model Object from ViewBag</h1>
+<ul>
+    <li>@ViewBag.SimpleModel.EmpID</li>
+    <li>@ViewBag.SimpleModel.Name</li>
+    <li>@ViewBag.SimpleModel.Department</li>
+</ul>
+<hr />
+
+<h1>List of Model Object from ViewBag</h1>
+@foreach(var employee in ViewBag.ListOfEmployees)
+{
+<h3>@employee.EmpID</h3>
+<h4>@employee.Name</h4>
+<h4>@employee.Department</h4>
+}
+<hr />
