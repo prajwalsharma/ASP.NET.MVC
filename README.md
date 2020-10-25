@@ -198,6 +198,7 @@ c. It provide all the tools required to create an MVC web application.
    ```c#
    // Keep Method - Keep the data for next request
    TempData["MyKey"] = "Hello World";
+   TempData.Keep();
        
    // Peek() Method - Keep the data for next request in one line
    ViewBag.MyKey = TempData.Peek("MyKey");
@@ -208,4 +209,51 @@ c. It provide all the tools required to create an MVC web application.
 # 13. HTTP 
 
 1. HTTP is Hyper Text Transfer Protocol.
-2. This protocol provide communication between client & server.
+2. This protocol (set of rules) provide communication between client & server.
+3. HTTP provide some methods (verbs) for the actions performed on the resource.
+4. Every action method is by default ***GET***
+   1. **GET**	(Data will be sent in the URL)
+   2. **POST** (Data will be sent in Request Body)
+   3. **PUT**
+   4. **DELETE**
+
+
+
+# 14. Routing
+
+1. Routing is a feature of ASP.NET that maps the incoming URL to the controller & action Methods.
+
+2. It is a pattern matching system.
+
+3. When our application starts, it stores all the created routes in a route table.
+
+4. **Route Table**
+
+   a. We create route for each action method
+
+   b. All the routes are stored in route table
+
+   c. Each incoming request is mapped to this route table.
+
+   d. If any matching URL found, then request goes to the controller.
+
+   e. If not found, then 404 not found response is send back to the client.
+
+5. There are 2 type of routing:
+
+   ​	a. **Traditional Routing** (MVC 4 & below)
+
+   ​	b. **Attribute Routing** (MVC 5)
+
+   
+
+# 15. Traditional Routing
+
+1. We create all routes in ***RouteConfig*** file.
+2. RouteConfig file is in **App_Start** folder.
+3. Each route need to be registered to make them work.
+4. Route has 4 parameters:
+   1. **Name**
+   2. **Pattern**
+   3. **Default Values**
+   4. **Constraints**
