@@ -1,0 +1,83 @@
+﻿@model DataFromViewToController.Models.Employee
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<section>
+    <h1>1. Send data using Parameters</h1>
+    @using (Html.BeginForm("PostWithParameters", "Home", "Post"))
+    {
+        <input type="text" name="firstname" />
+        <input type="text" name="lastname" />
+        <input class="btn btn-primary" type="submit" value="Submit" />
+    }
+    <hr />
+</section>
+
+<section>
+    <h1>2. Send data using Request Object</h1>
+    @using (Html.BeginForm("PostWithRequest", "Home", FormMethod.Post))
+    {
+        <input type="text" name="firstname" />
+        <input type="text" name="lastname" />
+        <input class="btn btn-primary" type="submit" value="Submit" />
+    }
+    <hr />
+</section>
+
+
+<section>
+    <h1>3. Send data using FormCollection Object</h1>
+    @using (Html.BeginForm("PostWithFormCollection", "Home", FormMethod.Post))
+    {
+        <input type="text" name="firstname" />
+        <input type="text" name="lastname" />
+        <input class="btn btn-primary" type="submit" value="Submit" />
+    }
+    <hr />
+</section>
+
+<section>
+    <h1>4. Send data using Strongly Binded Model</h1>
+    @using (Html.BeginForm("PostWithModelBinding", "Home", FormMethod.Post))
+    {
+        <input type="text" name="@Html.DisplayNameFor(x => x.FirstName)" />
+        <input type="text" name="@Html.DisplayNameFor(x => x.LastName)" />
+        <input class="btn btn-primary" type="submit" value="Submit" />
+    }
+    <hr />
+</section>
+
+<section>
+    <h1>5. Send data using JQuery</h1>
+    <input id="txtFirstname" type="text" name="firstname" />
+    <input id="txtLastname" type="text" name="lastname" />
+    <input id="btnSubmit" class="btn btn-primary" value="Submit" />
+    <hr />
+</section>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $("#btnSubmit").click(function () {
+
+        var firstName = $('#txtFirstname').val();
+        var lastName = $('#txtLastname').val();
+
+        $.ajax({
+            url: "/Home/PostWithAjax",
+            method: "POST",
+            data: { firstName: firstName, lastName: lastName },
+            success: function (response) {
+                alert(response);
+            },
+            error: function () {
+                alert("Failed!");
+            }
+        });
+    });
+</script>
+
+
