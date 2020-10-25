@@ -1,0 +1,36 @@
+﻿@model ViewDataDemo.Models.Employee
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>ViewData Demo</h1>
+<hr />
+
+<h2>Simple String in ViewData</h2>
+<p>@ViewData["SimpleString"]</p>
+<hr />
+
+<h2>List in ViewData</h2>
+<ul>
+    @foreach (string s in (List<string>)ViewData["SimpleList"])
+    {
+        <li>@s</li>
+    }
+</ul>
+<hr />
+
+<h2>Model object in ViewData</h2>
+<h3>@ViewData["EmployeeModel"].EmpID</h3>
+<h3>@ViewData["EmployeeModel"].Name</h3>
+<h3>@ViewData["EmployeeModel"].Department</h3>
+<hr />
+
+<h2>List of model objects in ViewData</h2>
+@foreach(var employee in (List<ViewDataDemo.Models.Employee>)ViewData["EmployeeModelList"])
+{
+    <h3>@employee.EmpID</h3>
+    <h4>@employee.Name</h4>
+    <h5>@employee.Department</h5>
+}
+<hr />
+

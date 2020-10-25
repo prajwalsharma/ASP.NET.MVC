@@ -176,4 +176,36 @@ c. It provide all the tools required to create an MVC web application.
    ViewData["MyProperty"] = "Hello World";
    ```
 
-   
+
+
+# 11. Difference between ViewData & ViewBag
+
+1. ViewBag is of dynamic type, ViewData is of dictionary type
+2. ViewData requires type-casting for complex data types, ViewData does not require type casting.
+
+
+
+# 12. TempData
+
+1. Used to send pass data from one request to another request.
+
+2. ViewBag & ViewData lost their values after 1 request therefore we cannot use it to show alerts.
+
+3. TempData can store data only up to next 1 request.
+
+4. TempData implements ***Session*** internally. If session is disabled then it won't work.
+
+   ```c#
+   // Keep Method - Keep the data for next request
+   TempData["MyKey"] = "Hello World";
+       
+   // Peek() Method - Keep the data for next request in one line
+   ViewBag.MyKey = TempData.Peek("MyKey");
+   ```
+
+
+
+# 13. HTTP 
+
+1. HTTP is Hyper Text Transfer Protocol.
+2. This protocol provide communication between client & server.
