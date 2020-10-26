@@ -258,3 +258,55 @@ c. It provide all the tools required to create an MVC web application.
    3. **Default Values**
    4. **Constraints**
 
+
+
+# 15. Pass data from view to Controller
+
+1. There are 4 ways to pass data from view to controller
+
+   1. Parameters
+
+   2. Request
+
+   3. FormCollections
+
+   4. Model Binding
+
+   5. JQuery
+
+      ```c#
+      // 1. Pass parameters using name attribute in html
+      // 2. Using Request Object
+      var a = Request["firstname"];
+      
+      // 3. Using FormCOllections
+      var a = form["firstname"];
+      ```
+
+      
+
+# 16. Validations
+
+1. There are 2 type of validations:
+
+   a. **Client** Side Validation (Handled at browser)
+
+   b. **Server** Side Validation (Handled at Server)
+
+2. Validations are used to filter user input.
+
+3. MVC uses attributes to apply Model Validation.
+
+4. ***System.ComponentModel.DataAnnotations*** namespace is used.
+
+5. There are two type of validations :
+
+   a. Loosely Binded (Property Name)
+
+   b. Strongly Binded (Model Binding)
+
+   
+
+# 17. Custom Validations
+
+1. We can create custom validation attributes by inheriting ***ValidationAttribute*** class's ***IsValid*** method.

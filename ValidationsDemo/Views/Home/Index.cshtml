@@ -1,0 +1,41 @@
+﻿@model ValidationsDemo.Models.Employee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <form action="/Home/Index" method="post">
+            @Html.AntiForgeryToken()
+
+            @Html.TextBoxFor(x => x.Firstname)
+            @Html.ValidationMessageFor(x => x.Firstname)
+            <br />
+
+            @Html.TextBoxFor(x => x.Lastname)
+            @Html.ValidationMessageFor(x => x.Lastname)
+            <br />
+
+            @Html.TextBoxFor(x => x.Age)
+            @Html.ValidationMessageFor(x => x.Age)
+            <br />
+
+            @Html.TextBoxFor(x => x.Email)
+            @Html.ValidationMessageFor(x => x.Email)
+            <br />
+
+            <input type="submit" value="Submit" />
+            <div>
+                @Html.ValidationSummary()
+            </div>
+        </form>
+    </div>
+</body>
+</html>
